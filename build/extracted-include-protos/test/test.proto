@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.voyager.grpctest";
+option java_outer_classname = "GrpcTestProto";
+option objc_class_prefix = "GRPCT";
+
+package grpctest;
+
+service GrpcTest {
+  rpc TestSingleRequest (TestRequest) returns (TestResponse) {}
+  rpc TestServerToClientStream (TestRequest) returns (stream TestResponse) {}
+  rpc TestClientToServerStream (stream TestRequest) returns (TestResponse) {}
+  rpc TestBidirectionalStream (stream TestRequest) returns (stream TestResponse) {}
+}
+
+message TestRequest {
+  string message = 1;
+}
+
+message TestResponse {
+  string message = 1;
+}

@@ -161,4 +161,4 @@ function splitJvmOpts() {
 eval splitJvmOpts $DEFAULT_JVM_OPTS $JAVA_OPTS $TEST_SERVER_OPTS
 
 
-exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" com.voyager.grpctest.Server "$@"
+exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" com.voyager.grpctest.sample.Server "$@"

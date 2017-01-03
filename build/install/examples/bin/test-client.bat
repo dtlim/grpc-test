@@ -72,7 +72,7 @@ set CMD_LINE_ARGS=%$
 set CLASSPATH=%APP_HOME%\lib\examples.jar;%APP_HOME%\lib\grpc-netty-1.0.0.jar;%APP_HOME%\lib\grpc-protobuf-1.0.0.jar;%APP_HOME%\lib\grpc-stub-1.0.0.jar;%APP_HOME%\lib\netty-codec-http2-4.1.3.Final.jar;%APP_HOME%\lib\grpc-core-1.0.0.jar;%APP_HOME%\lib\guava-19.0.jar;%APP_HOME%\lib\grpc-protobuf-lite-1.0.0.jar;%APP_HOME%\lib\protobuf-java-3.0.0.jar;%APP_HOME%\lib\protobuf-java-util-3.0.0.jar;%APP_HOME%\lib\netty-codec-http-4.1.3.Final.jar;%APP_HOME%\lib\netty-handler-4.1.3.Final.jar;%APP_HOME%\lib\jsr305-3.0.0.jar;%APP_HOME%\lib\gson-2.3.jar;%APP_HOME%\lib\netty-codec-4.1.3.Final.jar;%APP_HOME%\lib\netty-buffer-4.1.3.Final.jar;%APP_HOME%\lib\netty-transport-4.1.3.Final.jar;%APP_HOME%\lib\netty-common-4.1.3.Final.jar;%APP_HOME%\lib\netty-resolver-4.1.3.Final.jar
 
 @rem Execute test-client
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %TEST_CLIENT_OPTS%  -classpath "%CLASSPATH%" com.voyager.grpctest.Client %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %TEST_CLIENT_OPTS%  -classpath "%CLASSPATH%" com.voyager.grpctest.sample.Client %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell

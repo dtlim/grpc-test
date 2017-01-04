@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.voyager.grpctest";
+option java_outer_classname = "GrpcChatProto";
+option objc_class_prefix = "GRPCCHAT";
+
+package grpctest;
+
+service GrpcChat {
+  rpc ChatStream (stream ChatMessage) returns (stream ChatResponse) {}
+}
+
+message ChatMessage {
+  string user = 1;
+  string message = 2;
+}
+
+message ChatResponse {
+  int32 statusCode = 1;
+  string user = 2;
+  string message = 3;
+}

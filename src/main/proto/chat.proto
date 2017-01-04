@@ -18,6 +18,7 @@ message ChatMessage {
 
 message ChatResponse {
   int32 statusCode = 1;
-  string user = 2;
-  string message = 3;
+  int32 responseType = 2;
+  string user = 3;
+  string message = 4;
 }

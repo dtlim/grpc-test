@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  * Created by amw on 1/3/2017.
  */
 public class ChatServer {
-    private static final Logger logger = Logger.getLogger(Server.class.getName());
+    private static final Logger logger = Logger.getLogger(ChatServer.class.getName());
 
     /* The port on which the server should run */
     private int port = 50054;
@@ -70,6 +70,7 @@ public class ChatServer {
             StreamObserver<ChatMessage> observer = new StreamObserver<ChatMessage>() {
                 @Override
                 public void onNext(ChatMessage value) {
+                    logger.info("Received " + value.getMessage() + " from " + value.getUser());
                     ChatResponse response = ChatResponse.newBuilder()
                             .setStatusCode(1)
                             .setMessage(value.getMessage())

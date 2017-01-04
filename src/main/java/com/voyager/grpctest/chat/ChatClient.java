@@ -20,6 +20,8 @@ public class ChatClient {
     private final ManagedChannel channel;
     private final GrpcChatGrpc.GrpcChatStub asyncStub;
 
+    private String username = "Anonymous Client";
+
     public ChatClient(String host, int port) {
         channel = ManagedChannelBuilder.forAddress(host, port)
                 .usePlaintext(true)
@@ -49,6 +51,12 @@ public class ChatClient {
             }
         };
 
+        System.out.print("Enter your username: ");
+        String name = scanner.nextLine();
+        if(name != null && !name.isEmpty()) {
+            username = name;
+        }
+
         StreamObserver<ChatMessage> requestObserver = asyncStub.chatStream(responseObserver);
         while(true) {
             System.out.print("Enter your message: ");
@@ -60,7 +68,7 @@ public class ChatClient {
 
             ChatMessage chatMessage = ChatMessage.newBuilder()
                     .setMessage(message)
-                    .setUser("asdf")
+                    .setUser(username)
                     .build();
             requestObserver.onNext(chatMessage);
             try {

@@ -1,0 +1,15 @@
+These were generated using:
+
+Private Key:
+openssl genrsa -des3 -out server.key 1024
+
+Private Key in PKCS8 format (for Netty):
+openssl pkcs8 -topk8 -nocrypt -in server.key -out server.pem
+
+Certificate Signing Request:
+openssl req -new -key server.key -out server.csr
+
+Certificate:
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+
+pw: grpc
